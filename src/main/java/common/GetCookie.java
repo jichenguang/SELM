@@ -10,7 +10,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class GetCookie {
 	
-	public static   String getCookie(String PraUsername, String PraPassword, WebDriver Driver) {
+	public static Cookie session;
+	
+	public static  Cookie getCookie(WebDriver Driver) {
 	
 	 
 	 Driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -22,8 +24,8 @@ public class GetCookie {
 	}
 	*/
     //获取cookie，上面一跳出循环我认为就登录成功了，当然上面的判断不太严格，可以再进行修改
-    Set<Cookie> cookies = Driver.manage().getCookies();
-   /* Cookie cookie=new Cookie("java","eclipse","/",null);*/
+/*    Set<Cookie> cookies = Driver.manage().getCookies();
+    Cookie cookie=new Cookie("java","eclipse","/",null);
     
     
     
@@ -38,7 +40,14 @@ public class GetCookie {
     System.out.println("获取的cookie:" + cookieStr);
     
     System.out.println("----------------------------------------");
-    return cookieStr;
+    return cookieStr;*/
+	 
+	 session = Driver.manage().getCookieNamed("ASP.NET_SessionId");	 
+	 System.out.println("获取的用户为:" + session.getValue());
+	 
+	 return session;
+	 
+	 
      
 
 	}

@@ -22,6 +22,7 @@ public class Login_test {
 	static String url = "http://www.700store.com/login";
 	
 	
+	
            public static  boolean clickForLogin(String PraUsernamesername, String PraPassword, WebDriver Driver) throws InterruptedException {
 	
         	   				Driver.manage().deleteAllCookies();
